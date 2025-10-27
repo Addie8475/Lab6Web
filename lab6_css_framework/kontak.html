@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kontak - Layout Sederhana</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="container">
+        <header>
+            <h1>Layout Sederhana</h1>
+        </header>
+
+        <nav>
+            <a href="home.html">Home</a>
+            <a href="artikel.html">Artikel</a>
+            <a href="about.html">About</a>
+            <a href="kontak.html" class="active">Kontak</a>
+        </nav>
+
+        <section id="hero">
+            <h1>Hubungi Kami</h1>
+            <p>Kami senang mendengar dari Anda. Silakan gunakan form di bawah ini untuk mengirimkan pesan, pertanyaan, atau masukan. Tim kami akan merespons secepat mungkin.</p>
+        </section>
+
+        <section id="wrapper">
+            <section id="main">
+                <div class="contact-form-section">
+                    <h2>Form Kontak</h2>
+                    <form class="contact-form" id="contactForm">
+                        <div class="form-group">
+                            <label for="nama">Nama Lengkap *</label>
+                            <input type="text" id="nama" name="nama" required>
+                            <span class="error-message" id="namaError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Alamat Email *</label>
+                            <input type="email" id="email" name="email" required>
+                            <span class="error-message" id="emailError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="telepon">Nomor Telepon</label>
+                            <input type="tel" id="telepon" name="telepon">
+                        </div>
+
+                        <div class="form-group">
+                            <label for="subjek">Subjek *</label>
+                            <select id="subjek" name="subjek" required>
+                                <option value="">Pilih Subjek</option>
+                                <option value="umum">Pertanyaan Umum</option>
+                                <option value="kerja-sama">Kerja Sama</option>
+                                <option value="keluhan">Keluhan</option>
+                                <option value="saran">Saran</option>
+                                <option value="lainnya">Lainnya</option>
+                            </select>
+                            <span class="error-message" id="subjekError"></span>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="pesan">Pesan *</label>
+                            <textarea id="pesan" name="pesan" rows="6" required placeholder="Tulis pesan Anda di sini..."></textarea>
+                            <span class="error-message" id="pesanError"></span>
+                        </div>
+
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="newsletter" name="newsletter">
+                            <label for="newsletter">Saya ingin berlangganan newsletter</label>
+                        </div>
+
+                        <div class="form-group">
+                            <button type="submit" class="btn-submit">Kirim Pesan</button>
+                            <button type="reset" class="btn-reset">Reset Form</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="contact-info-mobile">
+                    <h3>Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <strong>Alamat:</strong>
+                        <p>Jl. Contoh No. 123, Jakarta 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Telepon:</strong>
+                        <p>+62 123 4567 890</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <p>info@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Jam Operasional:</strong>
+                        <p>Senin - Jumat: 09:00 - 17:00</p>
+                    </div>
+                </div>
+            </section>
+
+            <aside id="sidebar">
+                <div class="widget-box">
+                    <h3 class="title">Informasi Kontak</h3>
+                    <div class="contact-item">
+                        <strong>Alamat:</strong>
+                        <p>Jl. Contoh No. 123, Jakarta 12345</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Telepon:</strong>
+                        <p>+62 123 4567 890</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Email:</strong>
+                        <p>info@example.com</p>
+                    </div>
+                    <div class="contact-item">
+                        <strong>Jam Operasional:</strong>
+                        <p>Senin - Jumat: 09:00 - 17:00</p>
+                    </div>
+                </div>
+
+                <div class="widget-box">
+                    <h3 class="title">Lokasi Kami</h3>
+                    <div class="map-placeholder">
+                        <img src="https://dummyimage.com/250x150/cccccc/fff.png" alt="Peta Lokasi">
+                        <p>Peta lokasi kantor kami</p>
+                    </div>
+                </div>
+
+                <div class="widget-box">
+                    <h3 class="title">Media Sosial</h3>
+                    <div class="social-links">
+                        <a href="#" class="social-link">Facebook</a>
+                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link">Instagram</a>
+                        <a href="#" class="social-link">LinkedIn</a>
+                    </div>
+                </div>
+            </aside>
+        </section>
+
+        <footer>
+            <p>&copy; 2021 - Universitas Pelita Bangsa</p>
+        </footer>
+    </div>
+
+    <script>
+        document.getElementById('contactForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Reset error messages
+            const errorMessages = document.querySelectorAll('.error-message');
+            errorMessages.forEach(msg => msg.textContent = '');
+            
+            // Basic validation
+            let isValid = true;
+            
+            const nama = document.getElementById('nama').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const subjek = document.getElementById('subjek').value;
+            const pesan = document.getElementById('pesan').value.trim();
+            
+            if (nama === '') {
+                document.getElementById('namaError').textContent = 'Nama harus diisi';
+                isValid = false;
+            }
+            
+            if (email === '') {
+                document.getElementById('emailError').textContent = 'Email harus diisi';
+                isValid = false;
+            } else if (!isValidEmail(email)) {
+                document.getElementById('emailError').textContent = 'Format email tidak valid';
+                isValid = false;
+            }
+            
+            if (subjek === '') {
+                document.getElementById('subjekError').textContent = 'Subjek harus dipilih';
+                isValid = false;
+            }
+            
+            if (pesan === '') {
+                document.getElementById('pesanError').textContent = 'Pesan harus diisi';
+                isValid = false;
+            } else if (pesan.length < 10) {
+                document.getElementById('pesanError').textContent = 'Pesan terlalu pendek (minimal 10 karakter)';
+                isValid = false;
+            }
+            
+            if (isValid) {
+                alert('Pesan berhasil dikirim! Terima kasih telah menghubungi kami.');
+                this.reset();
+            }
+        });
+        
+        function isValidEmail(email) {
+            const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return emailRegex.test(email);
+        }
+    </script>
+</body>
+</html>
